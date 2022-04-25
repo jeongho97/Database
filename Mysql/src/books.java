@@ -20,7 +20,7 @@ public class books {
 			//rs=stmt.executeQuery(sql);//select할때
 			rs=stmt.executeUpdate(sql);
 			System.out.println(rs);
-//			while(rs.next()) { //select할때!
+//			while(rs.next()) { //select할때!!
 //				int book_code=rs.getInt("book_code");
 //				String title=rs.getString("title");
 //				String author=rs.getString("author");
