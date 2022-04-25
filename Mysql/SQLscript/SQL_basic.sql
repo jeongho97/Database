@@ -34,4 +34,6 @@ insert into customer values ('banana','정소화',25,'vip','학생',2500);
 insert into customer values ('carrot','원유선',28,'gold','학생',4500);
 insert into customer values ('orange','정지영',22,'silver','학생',0);
 
-select * from customer where grade='gold';
+select * from customer where grade='gold' and point >=2000;
+select name,grade,point from customer ; -- 순수 관계 연산자 프로젝트
+select grade distinct from customer;
