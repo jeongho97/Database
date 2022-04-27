@@ -155,3 +155,11 @@ create view 제품2 as select 제품명,재고량,제조업체 from 제품 with 
 select * from 제품2;
 insert into 제품2 values ('시원냉면',1000,'신선식품'); -- view에 기본키값이 있어야 수정이 가능하다!
 drop view 우수고객 restrict;
+
+select '100'+'200';
+select concat('1001'+'200');
+select concat(100,'200');
+select 1>'2mega';
+select 3>'2MEGA';
+select 0='2mega';
+
