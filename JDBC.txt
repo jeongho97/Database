@@ -1,0 +1,45 @@
+JDBC
+
+1.데이터베이스 프로그래밍의 일반적인 순서
+	1단계 데이터베이스와 연결하는 드라이버 클래스를 찾아 인스턴스를 생성한다 (DBMS에 연결)
+	2단계 연결을 관리하는 connector 객체를 생성한다
+	3단계 작업을 처리할 statment, preparedstatment (sql 명령어 실행)
+	4단계 ResultSet 객체를 통한 질의 결과를 처리한다. 결과셋 리턴(Select 명령어의 경우)
+	5단계 생성된 모든 객체를 닫는다.(연결 종료)
+
+2. JDBC(Java Database Connectivity)
+	자바와 데이터베이스의 연관 작업을 지원하는 기술
+	자바에서는 interface만 제공하고 dbms제조사에서 class 구현
+	jdbc 드라이버 : dbms에 대한 세부 작업을 담당하는 라이브러리 .jar 파일로 제공
+
+3.jdbc를 이용한 데이터베이스 프로그래밍
+	jdbc 드라이버 로드(driver manager)
+	데이터베이스에 접속(connection)
+	sql명령어 실행(preparedstatment)
+	select 명령어의 경우 결과셋 리턴(result)
+	데이터베이스 연결 종료
+
+4. jdbc에서의 트랜잭션 처리
+	기본적으로 auto commit
+	트랜잭션 기능을 사용하려면 auto commit 옵션을 비활성화
+	setAutoCommit(false)
+	commit()
+	rollback()
+
+5. java project 생성
+프로젝트 이름 : java_mysql
+
+6.mysql Connector J 다운로드
+	다운로드 주소: https://dev.mysql.com.downloads/connector/j/
+	-아카이브에서 다운 받고->압축을 풀고->jar파일을 복사한다 ->java project 하위에 libs 디렉토리를 만든후 jar 파일을
+	libs 디렉토리에 복사한 후->java build path의 libraries에 ㅜ가
+	-폴터 생성 new->folder->libs 생성
+	-추가: 프로젝트명에 우클릭->하단의 프로피티 클릭->java builds path->libraries->classpath->add ars클릭->jar 파일 추가
+ 	이렇게 해야 이클립스 컴파일러가 위치를 알게된다
+
+7. books.sql
+
+String sql="select*from books where price=?" (동적쿼리)
+PreparedStatment pstmt=conn.prepareStatment(sql) //동적쿼리
+pstmt.setInt(1,30000); 3000이 ?에 대응된다.
+rs=pstmt.rxrcuteQuery();
