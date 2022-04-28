@@ -162,4 +162,3 @@ select concat(100,'200');
 select 1>'2mega';
 select 3>'2MEGA';
 select 0='2mega';
-
