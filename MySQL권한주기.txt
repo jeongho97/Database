@@ -1,0 +1,25 @@
+cmd
+mysql -u root -p
+
+<사용 중인 사용자 계정들 확인하기>
+mysql> use mysql;
+mysql> select host, user from user;
+
+<사용자 계정 생성하기>
+mysql> create user 계정ID; (host % 외부 host 접근 권한)
+
+mysql> create user 계정ID@localhost identified by '비밀번호'; (localhost)
+mysql> create user 계정ID@'%' identified by '비밀번호'; (lovalhost만 추가된 계정에 외부 host 접근 권한 추가)
+
+<계정 권한  부여>
+mysql>grant all privileges on 데이터베이스 이름.테이블 이름 to 계정ID@'%'
+mysql>grant all privileges on 데이터베이스 이름.테이블 이름 to 계정ID@'localhost'
+
+<권한 부여 내용 메모리에 반영>
+mysql> flush privileges;
+
+<권한이 잘 부여되었는지 확인>
+mysql> show grants for 계정ID@localhost;
+
+<계정 삭제>
+drop user 계정ID@localhost;
