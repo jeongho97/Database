@@ -29,7 +29,7 @@ public class Find {
 			MongoCollection collection = mongoDatabase.getCollection("test");
 			boolean start=true;
 			while(start) {
-				System.out.println("select or insert or update or delete or input_insert or break : ");
+				System.out.println("select or insert or update or delete or input_insert or c_select or break : ");
 				Scanner s = new Scanner(System.in);
 				String str=s.next();
 				
@@ -83,6 +83,17 @@ public class Find {
 					Document t_docu=new Document("title",title).append("author",author).append("price", price); //이렇게 하는게 RDBS 동적쿼리 같은 방법인가?
 					collection.insertOne(t_docu);
 					System.out.println("삽입되었습니다.");
+					break;
+				case "c_select":
+					FindIterable iterDoc2=collection.find(Filters.eq("title","MongoDB"));
+					
+					//여러개를 받기 위해서
+					Iterator it2 = iterDoc2.iterator();//Vector<E>, ArrayList<E>가 상속받는 인터페이스
+					
+					while(it2.hasNext()) //그다음 요소가 있으면 true 없으면 false
+					{
+						System.out.println(it2.next());
+					}
 					break;
 				default :
 					System.out.println("종료되었습니다");
