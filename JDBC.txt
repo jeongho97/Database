@@ -43,3 +43,10 @@ String sql="select*from books where price=?" (동적쿼리)
 PreparedStatment pstmt=conn.prepareStatment(sql) //동적쿼리
 pstmt.setInt(1,30000); 3000이 ?에 대응된다.
 rs=pstmt.rxrcuteQuery();
+
+MongoDB JDBC driver 다운
+https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver
+pom 파일은 버전 다른거 호환?
+에서 버전 클릭 후 jar 파일 다운
+eclipse 프로젝트 생성 후 폴더 만든 뒤 복붙
+이하 동일
